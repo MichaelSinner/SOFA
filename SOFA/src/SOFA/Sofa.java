@@ -674,9 +674,7 @@ public class Sofa extends JFrame
         TabbedPaneConf PanelConf = new TabbedPaneConf();
     } 
     
-  
-
-  
+    
     private void RunActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException 
     {                                         
     // TODO add your handling code heroute:

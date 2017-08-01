@@ -13,7 +13,6 @@ import static java.lang.Math.round;
  * @author DCA_3
  */
 public class TwoPointstoAngle {
-  
     public Double PointX1,PointY1,PointX2,PointY2;
     public Double  m, theta, distance;
 
@@ -41,10 +40,10 @@ public class TwoPointstoAngle {
     
     public TwoPointstoAngle(Double X1,Double Y1,Double X2,Double Y2)
     {
-     PointX1=X1;
-     PointY1=Y1;
-     PointX2=X2;
-     PointY2=Y2;
+        PointX1=X1;
+        PointY1=Y1;
+        PointX2=X2;
+        PointY2=Y2;
     }
     
   
@@ -53,18 +52,18 @@ public class TwoPointstoAngle {
     
     public double AngleCalc ()
     {
-    m = (PointY1-PointY2)/(PointX1-PointX2) ;
-    //System.out.println("m = " + m);
-    theta = Math.abs( Math.toDegrees(Math.atan(m))) ;
-    return   (theta);
-   }
+        m = (PointY1-PointY2)/(PointX1-PointX2) ;
+        //System.out.println("m = " + m);
+        theta = Math.abs( Math.toDegrees(Math.atan(m))) ;
+        return   (theta);
+    }
     
     
     public double EuclideanDistance ()
     {
-    distance = Math.sqrt(Math.pow((PointX1-PointX2),2)+ Math.pow((PointY1-PointY2),2));
+        distance = Math.sqrt(Math.pow((PointX1-PointX2),2)+ Math.pow((PointY1-PointY2),2));
     //System.out.println("m = " + m);
     
-    return (distance);
-   }
+        return (distance);
+    }
 }

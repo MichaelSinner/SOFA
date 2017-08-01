@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Foil;
 
 import java.awt.Point;
@@ -14,11 +13,11 @@ import java.util.ArrayList;
  *
  * @author DCA_3
  */
-public class Holes implements Serializable {
-
+public class Holes implements Serializable 
+{
     
     Point center, innerPoint, outerPoint, barycenter, barycenterouter;
-     Double InnerPerimeter, OuterPerimeter, InnerArea, OuterArea, Roundness, RoundnessOuter;
+    Double InnerPerimeter, OuterPerimeter, InnerArea, OuterArea, Roundness, RoundnessOuter;
 
     public Point getBarycenterouter() {
         return barycenterouter;
@@ -78,9 +77,6 @@ public class Holes implements Serializable {
     }
     String status ;
 
-    
-
-  
     ArrayList<Point> InnerHolePoints = new ArrayList<Point>();
     ArrayList<Point> OuterHolePoints = new ArrayList<Point>();
 
@@ -149,10 +145,5 @@ public class Holes implements Serializable {
     public void setInnerHole(ArrayList<Point> InnerHole) {
         this.InnerHolePoints  = InnerHole;
     }
-
-   
-
-    
-
-    
+  
 }

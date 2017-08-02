@@ -31,10 +31,8 @@ public class ImagePreviewFrame extends JFrame{
     
     private BufferedImage biToPeview;
 
-    
-
-
-    public ImagePreviewFrame(BufferedImage img) throws IOException {
+    public ImagePreviewFrame(BufferedImage img) throws IOException 
+    {
         biToPeview = img;
         initComponents();
         Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
@@ -44,44 +42,28 @@ public class ImagePreviewFrame extends JFrame{
         setVisible(true);
     }
 
-    public void initComponents() throws IOException {
-                            Container cp = getContentPane();
-                            JPanel ImgPreview = new JPanel();
-                            ImageIcon imageIcon = new ImageIcon(biToPeview); 
-                               JLabel imagelabel = new JLabel(imageIcon);
-                              JScrollPane JSPanel = new JScrollPane();
-                              imagelabel.setIcon(imageIcon);
-                              JSPanel.getViewport().add(imagelabel);
-       
-          
-                              ImgPreview.removeAll();
-                              ImgPreview.setLayout(new BorderLayout());
-                              ImgPreview.add(JSPanel,BorderLayout.CENTER);
-        
-        
-        
-        
-        
-        
-        
-        
-     /*   ImgPreview.setBackground(Color.RED);
-             ImageIcon imageIcon = new ImageIcon(ImageIO.read(new File("C:\\Fotos_Foils\\contourn0.png"))); 
+    public void initComponents() throws IOException 
+    {
+        Container cp = getContentPane();
+        JPanel ImgPreview = new JPanel();
+        ImageIcon imageIcon = new ImageIcon(biToPeview); 
         JLabel imagelabel = new JLabel(imageIcon);
+        JScrollPane JSPanel = new JScrollPane();
         imagelabel.setIcon(imageIcon);
-        
-       ImgPreview.removeAll();
-       ImgPreview.add(imagelabel,BorderLayout.CENTER);
-        
-        */
-        
-        
-        
-        
-        
-        
-                             
-            
+        JSPanel.getViewport().add(imagelabel);
+
+        ImgPreview.removeAll();
+        ImgPreview.setLayout(new BorderLayout());
+        ImgPreview.add(JSPanel,BorderLayout.CENTER);
+         /*   ImgPreview.setBackground(Color.RED);
+                 ImageIcon imageIcon = new ImageIcon(ImageIO.read(new File("C:\\Fotos_Foils\\contourn0.png"))); 
+            JLabel imagelabel = new JLabel(imageIcon);
+            imagelabel.setIcon(imageIcon);
+
+           ImgPreview.removeAll();
+           ImgPreview.add(imagelabel,BorderLayout.CENTER);
+
+            */
         cp.add(ImgPreview);
     }
 }

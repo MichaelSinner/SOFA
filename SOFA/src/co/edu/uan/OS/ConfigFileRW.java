@@ -131,7 +131,7 @@ public String getDefaultPathImages() {
     public void SavePropertiesConfig() throws IOException
     {
         File configFile;
-        configFile = new File("C:\\SOFA\\Config.properties");
+        configFile = new File("src/SOFA/Config.properties");
         FileWriter writer = new FileWriter(configFile);
         Properties props = new Properties();
         props.setProperty("Roudness", this.getRoudness());
@@ -164,7 +164,7 @@ public String getDefaultPathImages() {
     public void LoadPropertiesConfig() throws IOException
     {
         Properties props = new Properties();
-        String fileName = "C:\\SOFA\\Config.properties";
+        String fileName = "src/SOFA/Config.properties";
         InputStream is = new FileInputStream(fileName);
 
         props.load(is);

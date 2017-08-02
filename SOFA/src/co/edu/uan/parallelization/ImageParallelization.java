@@ -2116,7 +2116,7 @@ Point FindCenterPointbyImageCorrelation (BufferedImage biImg, int Xini, int Yini
     Point Center = null;
     ImgtoCorr = new CorrelationImage();
     ImageInputStream stream = null;
-    FileInputStream fin = new FileInputStream("C:\\SOFA\\Plantilla18.jpg");
+    FileInputStream fin = new FileInputStream("src/co/edu/uan/images/Plantilla18.jpg");
     stream = ImageIO.createImageInputStream(fin);
     ImageReader reader = ImageIO.getImageReaders(stream).next(); // TODO: Test hasNext()
     reader.setInput(stream);

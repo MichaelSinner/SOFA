@@ -83,11 +83,11 @@ public class TabbedPaneConf extends JFrame {
      {
          OSSpecification OSCores = new OSSpecification();
          
-         iconDefective = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Defects.png")));
-         iconGeometry = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Geometry.png")));
-         iconContour = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Contour.png")));
-         iconPerformance = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Performance.png")));
-         iconOS = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Settings.png")));
+         iconDefective = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Defects.png")));
+         iconGeometry = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Geometry.png")));
+         iconContour = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Contour.png")));
+         iconPerformance = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Performance.png")));
+         iconOS = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Settings.png")));
 
   
          JButton btnInnerColor = new JButton("...");
@@ -214,7 +214,7 @@ public class TabbedPaneConf extends JFrame {
         Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
         setLocationRelativeTo(null); 
         setLocation(screenSize.width/3,screenSize.height/3);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/images/Settings.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/Settings.png")));
         setTitle("Settings");
         pack();
         setResizable(false);

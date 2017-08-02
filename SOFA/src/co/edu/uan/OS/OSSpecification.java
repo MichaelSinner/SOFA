@@ -15,14 +15,9 @@ import java.text.NumberFormat;
 public class OSSpecification {
     
         
-        long maxMemory,allocatedMemory,freeMemory;
-        Runtime runtime = Runtime.getRuntime();
+    long maxMemory,allocatedMemory,freeMemory;
+    Runtime runtime = Runtime.getRuntime();
 
-        
-    
-        
-        
-        
     public long getMaxMemory() {
         
         return maxMemory= runtime.maxMemory();

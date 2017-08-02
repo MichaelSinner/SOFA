@@ -32,6 +32,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -43,13 +44,15 @@ public class ImageParallelization implements Runnable
     private BufferedImage bImage;
     private long initialTime;
     private String filename, OnlyNameFile;
-    BufferedImage Subimage = new BufferedImage(47, 47,BufferedImage.TYPE_INT_RGB);  
+    BufferedImage Subimage = new BufferedImage(47, 47,BufferedImage.TYPE_INT_RGB);
+    JTextArea console;
     
-    public ImageParallelization(BufferedImage bImage, long initialTime, String filename) 
+    public ImageParallelization(BufferedImage bImage, long initialTime, String filename,JTextArea jTextArea) 
     {
         this.bImage = bImage;
         this.initialTime = initialTime;
         this.filename = filename;
+        this.console = jTextArea;
                 
         int pos = filename.lastIndexOf(".");
         if (pos > 0) this.OnlyNameFile = filename.substring(0, pos);
@@ -79,9 +82,6 @@ public class ImageParallelization implements Runnable
 @Override
  public void run() 
  {
-       
-    String BW;
-    double [][] radius = new double [82][109];
     Graphics2D g;
     Point FirstCenterFound = new Point();
     ArrayList <Holes> HolesbyImage;
@@ -110,6 +110,8 @@ public class ImageParallelization implements Runnable
             FirstCenterFound  =  new Point (FindCenterPointbyImageCorrelation(ImgtoConvert.getBIGray(), round(ImgtoConvert.getBIGray().getWidth()/2), round(ImgtoConvert.getBIGray().getHeight()/2), round(ImgtoConvert.getBIGray().getWidth()/2)+150, round(ImgtoConvert.getBIGray().getHeight()/2)+150));
             //FirstCenterFound  =  new Point (2343,1023);
             ImgtoConvert.thresholdImage(ImgtoCorr.getpixelAverage());
+            
+            
             ImgtoConvert.ErodingImage();
             ImgtoConvert.getBIErode();
             ImgMorpho =  ImgtoConvert.MorfologicalImage();  
@@ -1895,14 +1897,21 @@ public class ImageParallelization implements Runnable
         for (int i = 0; i< HolesbyImage.size();i++)
         {
             //System.out.println ("C= " + HolesbyImage.get(i).getRoundness()+ "P= " + HolesbyImage.get(i).getBarycenter() + " D =  "+ HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint()));
-            System.out.println (HolesbyImage.get(i).getInnerPoint());
-            System.out.println (HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint()));
-            System.out.println (HolesbyImage.get(i).getBarycenter());
-            System.out.println (HolesbyImage.get(i).getRoundness());
+            
+            console.append("InnerPoint Holes("+i+"): "+ HolesbyImage.get(i).getInnerPoint()+"\n");
+            console.append("BaryCenter Distance Holes("+i+"): "+ HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint())+"\n");
+            console.append("Barycenter Holes("+i+") : "+HolesbyImage.get(i).getBarycenter()+"\n");
+            console.append("Roundness Holes("+i+") : "+HolesbyImage.get(i).getRoundness()+"\n");
+            
+            
+            //System.out.println (HolesbyImage.get(i).getInnerPoint());
+            //System.out.println (HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint()));
+            //System.out.println (HolesbyImage.get(i).getBarycenter());
+            //System.out.println (HolesbyImage.get(i).getRoundness());
               
             if (HolesbyImage.get(i).getRoundness()==0)
-                  System.out.println ("****************");
-            System.out.println ("___________________");
+                console.append("*******************************"+"\n");
+            console.append("___________________"+"\n");
                 
               //  System.out.println("CentrosBorrosidad.add(new Point ("+ HolesbyImage.get(i).getBarycenter().x+","+ HolesbyImage.get(i).getBarycenter().y+"));");
             if (HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint())>(15.71))

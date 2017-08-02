@@ -85,7 +85,7 @@ public class Sofa extends JFrame
     private Container cntMain;
     ConfigFileRW LoadSettingValue = new ConfigFileRW();
     JMenuBar menuBar;
-    JTextArea  JTResult ;
+    JTextArea  JTResult;
 
     ImagetoBWparameter ImgtoConvert;
     private CorrelationImage ImgtoCorr;
@@ -706,8 +706,14 @@ public class Sofa extends JFrame
                     ImageReadParam param = reader.getDefaultReadParam();
                     param.setDestination(BIimage);
                     BIimage = reader.read(0, param);  
+                    /*
                     Thread thread = new Thread(new ImageParallelization(BIimage, init, FileSelected[checkIndex].getText()));
                     thread.start();
+                    */
+                    ImageParallelization im = new ImageParallelization(BIimage,init, FileSelected[checkIndex].getText(), JTResult);
+                    im.run();
+                    
+                    
                     stream.close();
                     fin.close();
                     FileSelected[checkIndex].setForeground(Color.BLUE);

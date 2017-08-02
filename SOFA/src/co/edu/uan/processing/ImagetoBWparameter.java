@@ -232,7 +232,7 @@ public int Threshold_MaxMin_Media(Point StartWindow, Point EndWindow, BufferedIm
              System.out.println("Valor Max " + Maxvalue); 
              System.out.println("Valor Min " + Minvalue); 
              
- return ((Minvalue+Maxvalue)/2);
+    return ((Minvalue+Maxvalue)/2);
  }
 
 

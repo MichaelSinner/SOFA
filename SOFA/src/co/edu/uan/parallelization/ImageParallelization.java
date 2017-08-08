@@ -85,7 +85,7 @@ public class ImageParallelization implements Runnable
     Graphics2D g;
     Point FirstCenterFound = new Point();
     ArrayList <Holes> HolesbyImage;
-    HolesbyImage                    = new ArrayList ();
+    HolesbyImage                    = new ArrayList<Holes>();
     BufferedImage ImgMorpho = null;
     ImagetoBWparameter ImgtoConvert = new ImagetoBWparameter();
     ImgtoConvert.setBIColor(this.bImage);
@@ -143,7 +143,7 @@ public class ImageParallelization implements Runnable
         }
 
         ArrayList <Point> CentrosBorrosidad;
-        CentrosBorrosidad = new ArrayList ();
+        CentrosBorrosidad = new ArrayList<>();
 
         CentrosBorrosidad.add(new Point (1828,1364));
         CentrosBorrosidad.add(new Point (1907,1364));
@@ -2164,7 +2164,7 @@ Holes HoleEvaluate (Point NewPoint, BufferedImage BImg )
     if ((Hole.getInnerPoint().x==0) && (Hole.getInnerPoint().y==0))
     {
         // System.out.println("Agujero en Coordenadas ( "+ NewPoint.x +","+ NewPoint.y+") no encontrado");
-        Hole.setInnerHolePoints(new ArrayList ());
+        Hole.setInnerHolePoints(new ArrayList<>());
         Hole.setBarycenter(Hole.getCenter());
         Hole.setInnerPerimeter(0.0);
         Hole.setInnerArea(0.0);
@@ -2196,7 +2196,7 @@ ArrayList<Holes> DiagonalGeometryReplication (BufferedImage BImg, Graphics2D gRe
 {
 
     ArrayList<Holes> HolesbyImage;
-    HolesbyImage = new ArrayList ();
+    HolesbyImage = new ArrayList<Holes> ();
     PixelOperation PixelOperationCalc = new PixelOperation ();
     Point NewPoint = new Point(); 
 
@@ -2282,7 +2282,7 @@ ArrayList<Holes> HorizontalGeometryReplication (BufferedImage BImg, Graphics2D g
 {
 
     ArrayList<Holes> xHolesbyImage;
-    xHolesbyImage = new ArrayList ();
+    xHolesbyImage = new ArrayList<Holes>();
     PixelOperation xPixelOperationCalc = new PixelOperation ();
     Point NewPoint = new Point(); 
     int Right = BImg.getWidth() - 20; // 20 px es la distancia minimima del radio hasta el borde inferior de la imagen

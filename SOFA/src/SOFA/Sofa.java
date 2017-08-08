@@ -116,18 +116,18 @@ public class Sofa extends JFrame
         setIconImage(Toolkit.getDefaultToolkit().getImage(Sofa.class.getResource("/co/edu/uan/images/IconApplication.png")));
         
         ImageIcon iconZoomin  = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/ZoomIn.png"));
-        ImageIcon iconZoomout = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/Zoomout.png"));
-        ImageIcon iconScreen  = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/ResizeImage.png"));
+        //ImageIcon iconZoomout = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/Zoomout.png"));
+        //ImageIcon iconScreen  = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/ResizeImage.png"));
         ImageIcon iconExecute = new ImageIcon(this.getClass().getResource("/co/edu/uan/images/Run.png"));
         
         JButton btnZoomin   = new JButton(null,iconZoomin);
-        JButton btnZoomout  = new JButton(null,iconZoomout);
-        JButton btnScreen   = new JButton(null,iconScreen);
+       // JButton btnZoomout  = new JButton(null,iconZoomout);
+       // JButton btnScreen   = new JButton(null,iconScreen);
         JButton btnRun      = new JButton(null,iconExecute);
         
-        btnZoomout.setEnabled(false);
+       // btnZoomout.setEnabled(false);
         btnZoomin.setEnabled(false);
-        btnScreen.setEnabled(false);
+       // btnScreen.setEnabled(false);
         
         pThread          = new JPanel();
         pCheckfiles      = new JPanel();
@@ -182,8 +182,8 @@ public class Sofa extends JFrame
                  tBarVertical.setOrientation(VERTICAL);
                  tBarVertical.setFloatable( false);
                  tBarVertical.addSeparator();
-                 tBarVertical.add(btnScreen);
-                 tBarVertical.add(btnZoomout);
+               //  tBarVertical.add(btnScreen);
+               //  tBarVertical.add(btnZoomout);
                  tBarVertical.add(btnZoomin);
                  tBarVertical.addSeparator();
                  tBarVertical.add(btnRun);
@@ -339,7 +339,7 @@ public class Sofa extends JFrame
 //********************* END PRINCIPAL******************************
 
         iconZoomin.getImage().flush();
-        iconZoomout.getImage().flush();
+     //   iconZoomout.getImage().flush();
         iconExecute.getImage().flush();
         setVisible(true);
     

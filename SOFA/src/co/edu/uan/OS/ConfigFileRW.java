@@ -7,9 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import SOFA.Sofa;
 
 
 /**
@@ -168,6 +165,8 @@ public String getDefaultPathImages() {
         InputStream is = new FileInputStream(fileName);
 
         props.load(is);
+
+        
 
         this.setAngle(props.getProperty("Angle"));
         this.setConcentricity(props.getProperty("Concentricity"));

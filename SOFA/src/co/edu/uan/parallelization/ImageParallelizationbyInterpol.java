@@ -19,7 +19,7 @@ import java.io.File;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
+
 
 import java.io.IOException;
 
@@ -28,7 +28,7 @@ import static java.lang.Math.cos;
 import static java.lang.Math.round;
 import static java.lang.Math.sin;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -388,8 +388,8 @@ Holes HoleEvaluate (Point NewPoint, BufferedImage BImg )
         {
         Hole.setOuterPoint(new Point());
         Hole.setBarycenter(Hole.getCenter());
-        Hole.setInnerHolePoints(new ArrayList ());
-        Hole.setOuterHolePoints(new ArrayList ());
+        Hole.setInnerHolePoints(new ArrayList<>());
+        Hole.setOuterHolePoints(new ArrayList<>());
         Hole.setInnerArea(0.0);
         Hole.setOuterArea(0.0);
         Hole.setInnerPerimeter(0.0);
@@ -415,7 +415,7 @@ ArrayList<Holes> DiagonalGeometryReplication (BufferedImage BImg, Graphics2D gRe
     {
 
 ArrayList<Holes> HolesbyImage;
-HolesbyImage = new ArrayList ();
+HolesbyImage = new ArrayList<Holes>();
 PixelOperation PixelOperationCalc = new PixelOperation ();
 Point NewPoint = new Point(); 
 
@@ -500,7 +500,7 @@ Point CalculateOrientationHorizontal (Point LastCenterFound, double CentersDista
 ArrayList<Holes> HorizontalGeometryReplication (BufferedImage BImg, Graphics2D gRef, Point LastCenterFound, double CentersDistance, int WidthImage, int HeighImage, int OptOrientation) {
 
 ArrayList<Holes> xHolesbyImage;
-xHolesbyImage = new ArrayList ();
+xHolesbyImage = new ArrayList<Holes>();
 PixelOperation xPixelOperationCalc = new PixelOperation ();
 Point NewPoint = new Point(); 
 int Right = BImg.getWidth() - 20; // 20 px es la distancia minimima del radio hasta el borde inferior de la imagen

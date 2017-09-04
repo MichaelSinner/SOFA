@@ -1911,7 +1911,7 @@ public class ImageParallelization implements Runnable
               
             if (HolesbyImage.get(i).getRoundness()==0)
                 console.append("*******************************"+"\n");
-            console.append("___________________"+"\n");
+                console.append("___________________"+"\n");
                 
               //  System.out.println("CentrosBorrosidad.add(new Point ("+ HolesbyImage.get(i).getBarycenter().x+","+ HolesbyImage.get(i).getBarycenter().y+"));");
             if (HolesbyImage.get(i).getBarycenter().distance(HolesbyImage.get(i).getInnerPoint())>(15.71))

@@ -3,9 +3,12 @@ package co.edu.uan.OS;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Properties;
 
 
@@ -128,7 +131,10 @@ public String getDefaultPathImages() {
     public void SavePropertiesConfig() throws IOException
     {
         File configFile;
-        configFile = new File("src/SOFA/Config.properties");
+         configFile = new File("C:\\SOFA\\Config.properties");
+        //configFile = new File("co/edu/uan/resources/Config.properties");
+        
+        
         FileWriter writer = new FileWriter(configFile);
         Properties props = new Properties();
         props.setProperty("Roudness", this.getRoudness());
@@ -161,29 +167,118 @@ public String getDefaultPathImages() {
     public void LoadPropertiesConfig() throws IOException
     {
         Properties props = new Properties();
-        String fileName = "src/SOFA/Config.properties";
-        InputStream is = new FileInputStream(fileName);
+        String fileName = "Config.properties";
+        File configFile = new File("C:\\SOFA\\Config.properties");
+        InputStream inputStream = new FileInputStream(configFile);
+        
+        try {
+            props.load(inputStream);
+            //props.load(getClass().getResourceAsStream("C:\\SOFA\\Config.properties"));
+            this.setAngle(props.getProperty("Angle"));
+            this.setConcentricity(props.getProperty("Concentricity"));
+            this.setCores(props.getProperty("Cores"));
+            this.setDistanceInner(props.getProperty("DistanceInner"));
+            this.setDistanceOuter(props.getProperty("DistanceOuter"));
+            this.setInnerColor(props.getProperty("InnerColor"));
+            this.setOuterColor(props.getProperty("OuterColor"));
+            this.setInnerRadius(props.getProperty("InnerRadius"));
+            this.setOutterRadius(props.getProperty("OutterRadius"));
+            this.setPitch(props.getProperty("Pitch"));
+            this.setRoudness(props.getProperty("Roudness"));
+            this.setThresholdValue(props.getProperty("ThresholdValue"));
+            this.setThresholdValue(props.getProperty("Cores"));
+            this.setDefaultPathImages(props.getProperty("DefaultPathImages"));
+           // inputStream.close();
+            props.clear();
+        } catch (Exception e) {
+            System.err.print("Error loading profiles "+fileName);
+        }
+            
+        //String fileName = "Config.properties";
+       // InputStream iss = ConfigFileRW.class.getClassLoader().getResourceAsStream(fileName);
+        //InputStream is = new FileInputStream(fileName);
 
-        props.load(is);
+
+        //props.load(is);
 
         
+         
+        /**
+        //-- "/co/edu/uan/OS/ConfigFileRW
+        Properties props = new Properties();
+        String fileName = "Config.properties";
+        InputStream is = getClass().getClassLoader().getResourceAsStream(fileName);
+        
+        if(is!=null)
+        {
+            props.load(is);
+            this.setAngle(props.getProperty("Angle"));
+            this.setConcentricity(props.getProperty("Concentricity"));
+            this.setCores(props.getProperty("Cores"));
+            this.setDistanceInner(props.getProperty("DistanceInner"));
+            this.setDistanceOuter(props.getProperty("DistanceOuter"));
+            this.setInnerColor(props.getProperty("InnerColor"));
+            this.setOuterColor(props.getProperty("OuterColor"));
+            this.setInnerRadius(props.getProperty("InnerRadius"));
+            this.setOutterRadius(props.getProperty("OutterRadius"));
+            this.setPitch(props.getProperty("Pitch"));
+            this.setRoudness(props.getProperty("Roudness"));
+            this.setThresholdValue(props.getProperty("ThresholdValue"));
+            this.setThresholdValue(props.getProperty("Cores"));
+            this.setDefaultPathImages(props.getProperty("DefaultPathImages"));
+            is.close();
+            props.clear();
+        }else{
+            throw new FileNotFoundException("Cant Load "+fileName+" in SOFA");
+        }
+    */    
+        /* 
+        try {
+            Properties prop = new Properties();
+            String propFileName = "config.properties";
 
-        this.setAngle(props.getProperty("Angle"));
-        this.setConcentricity(props.getProperty("Concentricity"));
-        this.setCores(props.getProperty("Cores"));
-        this.setDistanceInner(props.getProperty("DistanceInner"));
-        this.setDistanceOuter(props.getProperty("DistanceOuter"));
-        this.setInnerColor(props.getProperty("InnerColor"));
-        this.setOuterColor(props.getProperty("OuterColor"));
-        this.setInnerRadius(props.getProperty("InnerRadius"));
-        this.setOutterRadius(props.getProperty("OutterRadius"));
-        this.setPitch(props.getProperty("Pitch"));
-        this.setRoudness(props.getProperty("Roudness"));
-        this.setThresholdValue(props.getProperty("ThresholdValue"));
-        this.setThresholdValue(props.getProperty("Cores"));
-        this.setDefaultPathImages(props.getProperty("DefaultPathImages"));
-       // inputStream.close();
-        props.clear();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+
+            if (inputStream != null) {
+                    prop.load(inputStream);
+            } else {
+                    throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            }
+
+            Date time = new Date(System.currentTimeMillis());
+
+            prop.load(inputStream);
+            this.setAngle(prop.getProperty("Angle"));
+            this.setConcentricity(prop.getProperty("Concentricity"));
+            this.setCores(prop.getProperty("Cores"));
+            this.setDistanceInner(prop.getProperty("DistanceInner"));
+            this.setDistanceOuter(prop.getProperty("DistanceOuter"));
+            this.setInnerColor(prop.getProperty("InnerColor"));
+            this.setOuterColor(prop.getProperty("OuterColor"));
+            this.setInnerRadius(prop.getProperty("InnerRadius"));
+            this.setOutterRadius(prop.getProperty("OutterRadius"));
+            this.setPitch(prop.getProperty("Pitch"));
+            this.setRoudness(prop.getProperty("Roudness"));
+            this.setThresholdValue(prop.getProperty("ThresholdValue"));
+            this.setThresholdValue(prop.getProperty("Cores"));
+            this.setDefaultPathImages(prop.getProperty("DefaultPathImages"));
+
+
+
+
+            System.out.println("Results properties loaded : "+time);
+            inputStream.close();
+    } catch (Exception e) {
+            System.out.println("Exception: " + e);
+    } finally {
+           
+    }
+        
+        
+    */
+        
+
+       
       }
     
             
